@@ -78,14 +78,15 @@ Keep only comments that explain WHY or provide non-obvious context.
 
 ---
 
-## 5. Fix Remaining Comments
+## 5. Fix and Add Comments
 
-For comments you kept, rewrite them to be:
+For comments you kept, rewrite them to be terse and precise. Add comments where they would clarify non-obvious logic:
 
 - Terse (under 10 words if possible)
 - Precise (specific, not vague)
 - Non-conversational (no "we", "let's", "basically", "simply", "just")
 - Factual (state what is, not what you intended)
+- Add comments for complex algorithms, business logic, or non-obvious decisions
 
 ```typescript
 // Before
@@ -188,10 +189,6 @@ Search and eliminate these phrases from code and comments:
 - "handle edge cases" (unspecified)
 - "improved error handling" (unspecified)
 - "added validation" (unspecified)
-- "// TODO: handle errors"
-- "// TODO: add validation"
-
-Either implement the specific handling or remove the comment entirely.
 
 ---
 

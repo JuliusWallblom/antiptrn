@@ -3,8 +3,8 @@ import { Check, Copy } from "lucide-react";
 import { useEffect, useState } from "react";
 
 const CodeBlock = ({ children }: { children: string }) => (
-  <pre className="bg-zinc-900 border border-zinc-800 rounded-lg p-4 overflow-x-auto text-sm font-mono">
-    <code className="text-zinc-300">{children}</code>
+  <pre className="bg-card rounded-md p-4 overflow-x-auto text-sm font-mono">
+    <code className="text-muted-foreground">{children}</code>
   </pre>
 );
 
@@ -98,9 +98,6 @@ export function Home() {
               <li>Style changes to untouched code</li>
               <li>Renamed variables that didn't need renaming</li>
             </ul>
-            <p className="text-zinc-500 italic">
-              If you touched it and didn't need to, undo it.
-            </p>
           </Section>
 
           <Section number="2" title="Simplify">
@@ -141,9 +138,6 @@ return transform(x);`}
               <li>Import style</li>
               <li>Formatting</li>
             </ul>
-            <p className="text-zinc-500 italic">
-              Your code should be indistinguishable from the surrounding code.
-            </p>
           </Section>
 
           <Section number="4" title="Delete Obvious Comments">
@@ -163,8 +157,8 @@ return transform(x);`}
             </p>
           </Section>
 
-          <Section number="5" title="Fix Remaining Comments">
-            <p>For comments you kept, rewrite them to be:</p>
+          <Section number="5" title="Fix and Add Comments">
+            <p>Rewrite kept comments to be terse and precise. Add comments where they clarify non-obvious logic:</p>
             <ul className="list-disc list-inside space-y-1 ml-2">
               <li>Terse (under 10 words if possible)</li>
               <li>Precise (specific, not vague)</li>
@@ -173,6 +167,7 @@ return transform(x);`}
                 "just")
               </li>
               <li>Factual (state what is, not what you intended)</li>
+              <li>Add comments for complex algorithms, business logic, or non-obvious decisions</li>
             </ul>
             <CodeBlock>
               {`// Before
@@ -276,13 +271,7 @@ const name = data.user.name;`}
               <li>"handle edge cases" (unspecified)</li>
               <li>"improved error handling" (unspecified)</li>
               <li>"added validation" (unspecified)</li>
-              <li>{"// TODO: handle errors"}</li>
-              <li>{"// TODO: add validation"}</li>
             </ul>
-            <p className="text-zinc-500">
-              Either implement the specific handling or remove the comment
-              entirely.
-            </p>
           </Section>
 
           <Section number="10" title="Final Verification">
@@ -331,7 +320,7 @@ const name = data.user.name;`}
           </Section>
 
           <section className="space-y-4">
-            <h2 className="text-xl font-semibold text-white">Output</h2>
+            <h2 className="text-lg text-white">Output</h2>
             <p>
               Provide the corrected code with no explanation. If you made
               significant corrections, list them briefly after the code block:
