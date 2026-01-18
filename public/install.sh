@@ -4,7 +4,7 @@ set -e
 INSTALLED=0
 
 echo ""
-echo "Installing /antiptrn..."
+echo "Installing antiptrn..."
 echo ""
 
 # Claude Code

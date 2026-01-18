@@ -7,7 +7,6 @@ const CodeBlock = ({ children }: { children: string }) => (
 );
 
 const Section = ({
-  number,
   title,
   children,
 }: {
@@ -16,8 +15,8 @@ const Section = ({
   children: React.ReactNode;
 }) => (
   <section className="space-y-4">
-    <h2 className="text-xl font-semibold text-white">
-      {number}. {title}
+    <h2 className="text-lg font-normal text-white">
+      {title}
     </h2>
     {children}
   </section>
@@ -38,19 +37,19 @@ export function Home() {
     <div className="min-h-screen bg-black text-zinc-300">
       <div className="max-w-3xl mx-auto px-6 py-16">
         <header className="mb-16">
-          <h1 className="text-4xl font-bold text-white mb-4" style={{ fontFamily: "'Bricolage Grotesque', sans-serif" }}>/antiptrn</h1>
-          <p className="text-lg text-zinc-400">
+          <h1 className="text-4xl font-bricolage mb-2">antiptrn</h1>
+          <p className="text-muted-foreground">
             Anti-slop cleanup for AI-generated code
           </p>
         </header>
 
         <section className="mb-16">
-          <h2 className="text-sm font-medium text-zinc-500 uppercase tracking-wide mb-4">
+          <h2 className="text-xl mb-4">
             Installation
           </h2>
           <div
             onClick={copyToClipboard}
-            className="bg-zinc-900 border border-zinc-800 rounded-lg p-4 font-mono text-sm cursor-pointer hover:border-zinc-700 transition-colors group"
+            className="bg-muted rounded-lg p-4 font-mono text-sm cursor-pointer group"
           >
             <div className="flex items-center justify-between">
               <code className="text-zinc-300">{installCommand}</code>
