@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const CodeBlock = ({ children }: { children: string }) => (
   <pre className="bg-zinc-900 border border-zinc-800 rounded-lg p-4 overflow-x-auto text-sm font-mono">
@@ -24,8 +24,16 @@ const Section = ({
 
 export function Home() {
   const [copied, setCopied] = useState(false);
+  const [installs, setInstalls] = useState<number | null>(null);
 
   const installCommand = "curl -fsSL https://antiptrn.com/install | bash";
+
+  useEffect(() => {
+    fetch("/api/count")
+      .then((res) => res.json())
+      .then((data) => setInstalls(data.count))
+      .catch(() => {});
+  }, []);
 
   const copyToClipboard = async () => {
     await navigator.clipboard.writeText(installCommand);
@@ -60,6 +68,11 @@ export function Home() {
           </div>
           <p className="text-sm text-zinc-500 mt-3">
             Auto-detects Claude Code, Cursor, OpenCode, Codex, and Antigravity
+            {installs !== null && (
+              <span className="ml-2">
+                · {installs.toLocaleString()} installs
+              </span>
+            )}
           </p>
         </section>
 

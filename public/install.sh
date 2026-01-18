@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# Track install
+curl -sL "https://antiptrn.com/api/track" > /dev/null 2>&1 &
+
 INSTALLED=0
 
 echo ""
