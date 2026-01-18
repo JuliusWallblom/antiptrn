@@ -47,7 +47,7 @@ export function Home() {
   return (
     <div className="min-h-screen bg-black text-zinc-300">
       <div className="max-w-3xl mx-auto px-12 py-24">
-        <header className="mb-24">
+        <header className="mb-12">
 
           <div className="flex items-center gap-3 mb-3">
             <h1 className="text-3xl font-bricolage">/antiptrn</h1>
@@ -60,7 +60,7 @@ export function Home() {
           </p>
         </header>
 
-        <section className="mb-24">
+        <section className="mb-12">
           <h2 className="text-xl mb-4">
             Installation
           </h2>
