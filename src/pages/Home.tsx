@@ -1,4 +1,6 @@
-import { useState, useEffect } from "react";
+import { Badge } from "@/components/ui/badge";
+import { Check, Copy } from "lucide-react";
+import { useEffect, useState } from "react";
 
 const CodeBlock = ({ children }: { children: string }) => (
   <pre className="bg-zinc-900 border border-zinc-800 rounded-lg p-4 overflow-x-auto text-sm font-mono">
@@ -32,7 +34,7 @@ export function Home() {
     fetch("/api/count")
       .then((res) => res.json())
       .then((data) => setInstalls(data.count))
-      .catch(() => {});
+      .catch(() => { });
   }, []);
 
   const copyToClipboard = async () => {
@@ -43,36 +45,43 @@ export function Home() {
 
   return (
     <div className="min-h-screen bg-black text-zinc-300">
-      <div className="max-w-3xl mx-auto px-6 py-16">
-        <header className="mb-16">
-          <h1 className="text-4xl font-bricolage mb-2">antiptrn</h1>
-          <p className="text-muted-foreground">
-            Anti-slop cleanup for AI-generated code
+      <div className="max-w-3xl mx-auto px-12 py-24">
+        <header className="mb-24">
+
+          <div className="flex items-center gap-3 mb-3">
+            <h1 className="text-3xl font-bricolage">/antiptrn</h1>
+            <Badge variant="secondary">
+              {installs || "0".toLocaleString()} installs
+            </Badge>
+          </div>
+          <p className="text-muted-foreground max-w-xl">
+            A proactive & retroactive guard that catches AI slop. Enforces precision, removes bloat, and makes AI-generated code indistinguishable from human-written. Works with <a href="https://claude.com/claude-code" target="_blank" className="underline underline-offset-3 decoration-[1px] decoration-muted-foreground/40 hover:decoration-foreground text-muted-foreground hover:text-foreground transition-colors">Claude Code</a>, <a href="https://cursor.sh" target="_blank" className="underline underline-offset-3 decoration-[1px] decoration-muted-foreground/40 hover:decoration-foreground text-muted-foreground hover:text-foreground transition-colors">Cursor</a>, <a href="https://opencode.dev" target="_blank" className="underline underline-offset-3 decoration-[1px] decoration-muted-foreground/40 hover:decoration-foreground text-muted-foreground hover:text-foreground transition-colors">OpenCode</a>, <a href="https://github.com/openai/codex" target="_blank" className="underline underline-offset-3 decoration-[1px] decoration-muted-foreground/40 hover:decoration-foreground text-muted-foreground hover:text-foreground transition-colors">Codex</a>, and <a href="https://developers.google.com/gemini/gemini-cli" target="_blank" className="underline underline-offset-3 decoration-[1px] decoration-muted-foreground/40 hover:decoration-foreground text-muted-foreground hover:text-foreground transition-colors">Antigravity</a>.
           </p>
         </header>
 
-        <section className="mb-16">
+        <section className="mb-24">
           <h2 className="text-xl mb-4">
             Installation
           </h2>
           <div
             onClick={copyToClipboard}
-            className="bg-muted rounded-lg p-4 font-mono text-sm cursor-pointer group"
+            className="bg-card rounded-md p-4 font-mono text-sm cursor-pointer group"
           >
             <div className="flex items-center justify-between">
-              <code className="text-zinc-300">{installCommand}</code>
-              <span className="text-zinc-500 group-hover:text-zinc-400 text-xs">
-                {copied ? "Copied!" : "Click to copy"}
+              <code className="text-muted-foreground"><span className="text-muted-foreground/50 mr-2">$</span>{installCommand}</code>
+              <span className="transition-colors group-hover:text-foreground text-muted-foreground">
+                {
+                  copied ? (
+                    <Check className="size-3.5" />
+                  ) : (
+                    <Copy className="size-3.5" />
+                  )
+                }
               </span>
             </div>
           </div>
-          <p className="text-sm text-zinc-500 mt-3">
-            Auto-detects Claude Code, Cursor, OpenCode, Codex, and Antigravity
-            {installs !== null && (
-              <span className="ml-2">
-                · {installs.toLocaleString()} installs
-              </span>
-            )}
+          <p className="text-sm text-muted-foreground/60 mt-3">
+            Auto-detects your coding agent.
           </p>
         </section>
 
@@ -341,17 +350,17 @@ Simplified:
           </section>
         </div>
 
-        <footer className="mt-24 pt-8 border-t border-zinc-800 text-zinc-600 text-sm">
+        <footer className="mt-24 pt-8 text-muted-foreground/60 text-xs">
           <div className="flex justify-between items-center">
-            <span>&copy; 2026</span>
+            <span>&copy; 2026 antiptrn</span>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-zinc-400 transition-colors">
+              <a href="#" className="hover:text-muted-foreground transition-colors">
                 Privacy
               </a>
-              <a href="#" className="hover:text-zinc-400 transition-colors">
+              <a href="#" className="hover:text-muted-foreground transition-colors">
                 Terms
               </a>
-              <a href="#" className="hover:text-zinc-400 transition-colors">
+              <a href="#" className="hover:text-muted-foreground transition-colors">
                 Contact
               </a>
             </div>
