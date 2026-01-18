@@ -28,7 +28,7 @@ export function Home() {
   const [copied, setCopied] = useState(false);
   const [installs, setInstalls] = useState<number | null>(null);
 
-  const installCommand = "curl -fsSL https://antiptrn.com/install | bash";
+  const installCommand = "curl -fsSL https://antiptrn.dev/install | bash";
 
   useEffect(() => {
     fetch("/api/count")
