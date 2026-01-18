@@ -1,5 +1,6 @@
 import { Badge } from "@/components/ui/badge";
 import { Check, Copy } from "lucide-react";
+import NumberFlow from "@number-flow/react";
 import { useEffect, useState } from "react";
 
 const CodeBlock = ({ children }: { children: string }) => (
@@ -51,7 +52,7 @@ export function Home() {
           <div className="flex items-center gap-3 mb-3">
             <h1 className="text-3xl font-bricolage">/antiptrn</h1>
             <Badge variant="secondary">
-              {installs || "0".toLocaleString()} installs
+              <NumberFlow value={installs ?? 0} /> installs
             </Badge>
           </div>
           <p className="text-muted-foreground max-w-xl">
