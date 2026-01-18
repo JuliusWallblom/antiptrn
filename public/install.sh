@@ -14,6 +14,8 @@ echo ""
 if [ -d "$HOME/.claude" ]; then
   mkdir -p "$HOME/.claude/commands"
   curl -sL https://antiptrn.dev/antiptrn.md -o "$HOME/.claude/commands/antiptrn.md"
+  curl -sL https://antiptrn.dev/antiptrn-pre.md -o "$HOME/.claude/commands/antiptrn-pre.md"
+  curl -sL https://antiptrn.dev/antiptrn-review.md -o "$HOME/.claude/commands/antiptrn-review.md"
   echo "  ✓ Claude Code"
   INSTALLED=$((INSTALLED + 1))
 fi
@@ -22,6 +24,8 @@ fi
 if [ -d "$HOME/.cursor" ]; then
   mkdir -p "$HOME/.cursor/rules"
   curl -sL https://antiptrn.dev/antiptrn.md -o "$HOME/.cursor/rules/antiptrn.md"
+  curl -sL https://antiptrn.dev/antiptrn-pre.md -o "$HOME/.cursor/rules/antiptrn-pre.md"
+  curl -sL https://antiptrn.dev/antiptrn-review.md -o "$HOME/.cursor/rules/antiptrn-review.md"
   echo "  ✓ Cursor"
   INSTALLED=$((INSTALLED + 1))
 fi
@@ -30,6 +34,8 @@ fi
 if command -v opencode &> /dev/null || [ -d "$HOME/.config/opencode" ]; then
   mkdir -p "$HOME/.config/opencode/commands"
   curl -sL https://antiptrn.dev/antiptrn.md -o "$HOME/.config/opencode/commands/antiptrn.md"
+  curl -sL https://antiptrn.dev/antiptrn-pre.md -o "$HOME/.config/opencode/commands/antiptrn-pre.md"
+  curl -sL https://antiptrn.dev/antiptrn-review.md -o "$HOME/.config/opencode/commands/antiptrn-review.md"
   echo "  ✓ OpenCode"
   INSTALLED=$((INSTALLED + 1))
 fi
@@ -38,6 +44,8 @@ fi
 if command -v codex &> /dev/null || [ -d "$HOME/.codex" ]; then
   mkdir -p "$HOME/.codex/commands"
   curl -sL https://antiptrn.dev/antiptrn.md -o "$HOME/.codex/commands/antiptrn.md"
+  curl -sL https://antiptrn.dev/antiptrn-pre.md -o "$HOME/.codex/commands/antiptrn-pre.md"
+  curl -sL https://antiptrn.dev/antiptrn-review.md -o "$HOME/.codex/commands/antiptrn-review.md"
   echo "  ✓ Codex"
   INSTALLED=$((INSTALLED + 1))
 fi
@@ -46,6 +54,8 @@ fi
 if [ -d "$HOME/.gemini" ]; then
   mkdir -p "$HOME/.gemini/commands"
   curl -sL https://antiptrn.dev/antiptrn.md -o "$HOME/.gemini/commands/antiptrn.md"
+  curl -sL https://antiptrn.dev/antiptrn-pre.md -o "$HOME/.gemini/commands/antiptrn-pre.md"
+  curl -sL https://antiptrn.dev/antiptrn-review.md -o "$HOME/.gemini/commands/antiptrn-review.md"
   echo "  ✓ Antigravity"
   INSTALLED=$((INSTALLED + 1))
 fi
