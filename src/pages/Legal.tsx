@@ -56,7 +56,7 @@ Please review:
     },
     {
       heading: "Contact",
-      content: `Questions? Email hello@antiptrn.dev`,
+      content: `Questions? Email hello@antiptrn.com`,
     },
   ],
 };
@@ -107,7 +107,7 @@ const termsContent = {
     },
     {
       heading: "Contact",
-      content: `Questions? Email hello@antiptrn.dev`,
+      content: `Questions? Email hello@antiptrn.com`,
     },
   ],
 };

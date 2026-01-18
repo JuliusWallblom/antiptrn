@@ -30,7 +30,7 @@ export function Home() {
   const [installs, setInstalls] = useState<number | null>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
-  const installCommand = "curl -fsSL https://antiptrn.dev/install | bash";
+  const installCommand = "curl -fsSL https://antiptrn.com/install | bash";
 
   useEffect(() => {
     fetch("/api/count")
@@ -359,7 +359,7 @@ Simplified:
 
         <footer className="mt-24 pt-8 text-muted-foreground/60 text-xs">
           <div className="flex justify-between items-center">
-            <span>&copy; 2026 antiptrn</span>
+            <span>&copy; 2026 /antiptrn</span>
             <div className="flex gap-6">
               <a href="/privacy" className="hover:text-muted-foreground transition-colors">
                 Privacy
@@ -367,7 +367,7 @@ Simplified:
               <a href="/terms" className="hover:text-muted-foreground transition-colors">
                 Terms
               </a>
-              <a href="mailto:hello@antiptrn.dev" className="hover:text-muted-foreground transition-colors">
+              <a href="mailto:hello@antiptrn.com" className="hover:text-muted-foreground transition-colors">
                 Contact
               </a>
             </div>
