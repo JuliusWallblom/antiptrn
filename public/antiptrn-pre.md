@@ -1,4 +1,4 @@
-# Anti-Slop Coding Guidelines
+# Precondition prompt with antiptrn
 
 These guidelines apply to all code generation, modification, and review tasks. Follow them precisely.
 

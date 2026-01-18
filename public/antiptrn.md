@@ -1,4 +1,4 @@
-# Anti-Slop Fix
+# Run antiptrn
 
 Rewrite the code applying all corrections below. Output the fixed code only.
 

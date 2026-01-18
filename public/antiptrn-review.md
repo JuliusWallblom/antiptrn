@@ -1,4 +1,4 @@
-# Anti-Slop Cleanup
+# Run antiptrn review
 
 Review the code you just generated and apply these corrections. Output only the corrected code.
 
