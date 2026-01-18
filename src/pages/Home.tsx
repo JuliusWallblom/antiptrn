@@ -1,7 +1,7 @@
 import { Badge } from "@/components/ui/badge";
 import { Check, Copy } from "lucide-react";
 import NumberFlow from "@number-flow/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const CodeBlock = ({ children }: { children: string }) => (
   <pre className="bg-card rounded-md p-4 overflow-x-auto text-sm font-mono">
@@ -26,8 +26,9 @@ const Section = ({
 );
 
 export function Home() {
-  const [copied, setCopied] = useState(false);
+  const [copied, setCopied] = useState<string | null>(null);
   const [installs, setInstalls] = useState<number | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>(null);
 
   const installCommand = "curl -fsSL https://antiptrn.dev/install | bash";
 
@@ -38,17 +39,17 @@ export function Home() {
       .catch(() => { });
   }, []);
 
-  const copyToClipboard = async () => {
-    await navigator.clipboard.writeText(installCommand);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
+  const copyToClipboard = async (text: string) => {
+    await navigator.clipboard.writeText(text);
+    setCopied(text);
+    if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    timeoutRef.current = setTimeout(() => setCopied(null), 2000);
   };
 
   return (
     <div className="min-h-screen bg-black text-zinc-300">
       <div className="max-w-3xl mx-auto px-12 py-24">
         <header className="mb-12">
-
           <div className="flex items-center gap-3 mb-3">
             <h1 className="text-3xl font-bricolage">/antiptrn</h1>
             <Badge variant="secondary">
@@ -65,24 +66,38 @@ export function Home() {
             Installation
           </h2>
           <div
-            onClick={copyToClipboard}
+            onClick={() => copyToClipboard(installCommand)}
             className="bg-card rounded-md p-4 font-mono text-sm cursor-pointer group"
           >
             <div className="flex items-center justify-between">
-              <code className="text-muted-foreground"><span className="text-muted-foreground/50 mr-2">$</span>{installCommand}</code>
+              <code className="text-muted-foreground"><span className="text-muted-foreground/50 mr-2 select-none">$</span>{installCommand}</code>
               <span className="transition-colors group-hover:text-foreground text-muted-foreground">
-                {
-                  copied ? (
-                    <Check className="size-3.5" />
-                  ) : (
-                    <Copy className="size-3.5" />
-                  )
-                }
+                {copied === installCommand ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
               </span>
             </div>
           </div>
           <p className="text-sm text-muted-foreground/60 mt-3">
             Auto-detects your coding agent.
+          </p>
+        </section>
+
+        <section className="mb-12">
+          <h2 className="text-xl mb-4">
+            Usage
+          </h2>
+          <div
+            onClick={() => copyToClipboard("/antiptrn")}
+            className="bg-card rounded-md p-4 font-mono text-sm cursor-pointer group"
+          >
+            <div className="flex items-center justify-between">
+              <code className="text-muted-foreground"><span className="text-muted-foreground/50 mr-2 select-none">&gt;</span>/antiptrn</code>
+              <span className="transition-colors group-hover:text-foreground text-muted-foreground">
+                {copied === "/antiptrn" ? <Check className="size-3.5" /> : <Copy className="size-3.5" />}
+              </span>
+            </div>
+          </div>
+          <p className="text-sm text-muted-foreground/60 mt-3">
+            Reviews and fixes AI-generated code.
           </p>
         </section>
 
