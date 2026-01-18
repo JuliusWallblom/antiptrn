@@ -350,7 +350,7 @@ Simplified:
               <a href="/terms" className="hover:text-muted-foreground transition-colors">
                 Terms
               </a>
-              <a href="mailto:hello@antiptrn.com" className="hover:text-muted-foreground transition-colors">
+              <a href="mailto:hello@antiptrn.dev" className="hover:text-muted-foreground transition-colors">
                 Contact
               </a>
             </div>
