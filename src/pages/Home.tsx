@@ -355,6 +355,8 @@ Simplified:
           </section>
         </div>
 
+        <p className="mt-12 text-muted-foreground max-w-xl">Looking for resolve accessibility issues? Try <a href="https://rams.ai" target="_blank" className="underline underline-offset-3 decoration-[1px] decoration-muted-foreground/40 hover:decoration-foreground text-muted-foreground hover:text-foreground transition-colors">Rams</a> by <a href="https://elirousso.com" target="_blank" className="underline underline-offset-3 decoration-[1px] decoration-muted-foreground/40 hover:decoration-foreground text-muted-foreground hover:text-foreground transition-colors">Eli Rousso</a>.</p>
+
         <footer className="mt-24 pt-8 text-muted-foreground/60 text-xs">
           <div className="flex justify-between items-center">
             <span>&copy; 2026 antiptrn</span>
