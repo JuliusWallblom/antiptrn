@@ -17,8 +17,8 @@ const Section = ({
   title: string;
   children: React.ReactNode;
 }) => (
-  <section className="space-y-4">
-    <h2 className="text-lg font-normal text-white">
+  <section className="space-y-4 text-muted-foreground">
+    <h2 className="text-lg font-normal text-foreground">
       {title}
     </h2>
     {children}
@@ -47,7 +47,7 @@ export function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-zinc-300">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-3xl mx-auto px-12 py-24">
         <header className="mb-12">
           <div className="flex items-center gap-3 mb-3">
