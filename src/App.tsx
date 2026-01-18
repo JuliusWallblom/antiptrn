@@ -1,9 +1,16 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Home } from "@/pages/Home";
+import { Install } from "@/pages/Install";
+
 export function App() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="font-medium">Hello World</div>
-    </div>
-  )
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/install" element={<Install />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
